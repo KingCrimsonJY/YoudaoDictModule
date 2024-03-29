@@ -2,6 +2,4 @@ id=Youdao
 name=YoudaoDict
 author=KingCrimson
 description=YoudaoDictHook
-version=1
-versionCode=1
 updateJson=https://ghproxy.com/https://github.com/KingCrimsonJY/YoudaoDictModule/blob/main/module.json

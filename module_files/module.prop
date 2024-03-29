@@ -1,5 +1,7 @@
-id=<string>
-name=<string>
-author=<string>
-description=<string>
+id=Youdao
+name=YoudaoDict
+author=KingCrimson
+description=YoudaoDictHook
+version=1
+versionCode=1
 updateJson=https://ghproxy.com/https://github.com/zjw2017/MagiskModule_OnlineUpdate/blob/main/module.json

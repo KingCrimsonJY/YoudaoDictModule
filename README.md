@@ -2,26 +2,16 @@
 
 这是一个`适配 Magisk的versionCode大于等于24000`的模块在线更新(updateJson)**模板**
 
-<div align="center">
-<strong>
-<samp>
-
-[简体中文](README.md) · [English](README_English.md)(English暂未上线)
-
-</samp>
-</strong>
-</div>
-
 ## **使用方法**
 
 ### **一、了解相关文件**
 
-| 文件 | 类型 | 功能 |
-| :--------:  | :-----:  | :----:  |
-| .github/workflows/release.yml | 文件 | 工作流文件|
-| module_files | 文件夹 | 存放您模块的相关文件 |
-| module.json | 文件 | Magisk检测模块更新的依赖文件 |
-| module.md | 文件 | Magisk模块检测到更新，点击<br>更新后，将会弹出更新日志 |
+|             文件             |  类型  |                          功能                          |
+| :---------------------------: | :----: | :----------------------------------------------------: |
+| .github/workflows/release.yml |  文件  |                       工作流文件                       |
+|         module_files         | 文件夹 |                  存放您模块的相关文件                  |
+|          module.json          |  文件  |              Magisk检测模块更新的依赖文件              |
+|           module.md           |  文件  | Magisk模块检测到更新，点击更新后，将会弹出更新日志 |
 
 ### **二、适配您的模块**
 
@@ -107,11 +97,13 @@ jobs:
 
 3. **修改[module.md](https://github.com/zjw2017/MagiskModule_OnlineUpdate/blob/main/module.md)**：文件名可**自定义修改**。模块的**更新日志**，语法为`Markdown`
 4. **修改[module.json](https://github.com/zjw2017/MagiskModule_OnlineUpdate/blob/main/module.json)**：**文件名**需要**与`.github/workflows/release.yml`中第5行文件名一致**。我们需要修改第**2、3、5**行。
-
+   
    变量：类型
+   
    - version：string
    - versionCode：int
    - changelog：url
+
 > 补充说明：url为`module.md`的[链接](https://github.com/zjw2017/MagiskModule_OnlineUpdate/blob/main/module.md)，只需要填写一次即可。如果是中国大陆地区，可在上一步中文件的链接前面加代理头（比如[https://ghproxy.com](https://ghproxy.com/)）。如您的地区可以访问Github相关网站，可以删掉代理头
 
 5. **修改模块的`module.prop`以支持在线更新**：格式如下。参数顺序可以打乱，但
@@ -124,7 +116,6 @@ name=<string>
 author=<string>
 description=<string>
 updateJson=<url>
-
 ```
 
 > 补充说明：url为`module.json`的[链接](https://github.com/zjw2017/MagiskModule_OnlineUpdate/blob/main/module.json)，只需要填写一次即可。如果是中国大陆地区，可在上一步中文件的链接前面加代理头（比如[https://ghproxy.com](https://ghproxy.com/)）。如您的地区可以访问Github相关网站，可以删掉代理头
@@ -136,9 +127,11 @@ updateJson=<url>
 7. 发起Action构建，完成发布
 
 ### 三、授予Workflow权限
+
 打开项目页的**Settings**，点击**左侧菜单栏**中的**Actions**，点击**展开菜单**中的**General**，找到**Workflow permissions**，点击**Read and write permissions**，点击**Workflow permissions下方的第一个Save按钮**
 
 ### 四、了解项目机制
+
 本项目利用了**Github Actions**，设计了两种触发方式：**更新.json文件**和**手动触发**。
 
 当您完成代码提交和模块迭代后，就要在 **.json文件** 中配置**版本号**来告知您的用户有新版本，同时，您可以在 **.md文件** 中使用`Markdown`语法书写此次的**更新日志**。不同于系统更新，日志不会叠加。所以您的用户只会看到最新版本的更新日志（除非您更新时保留上次的日志）。
@@ -150,4 +143,6 @@ updateJson=<url>
 做完了这些，您的用户就可以在**Magisk**的**模块**选项卡中检测到新版本并安装到设备上。
 
 ### 五、结语
+
 欢迎大家用来适配自己的模块，同时也期待能有专业人员共同改进本项目，感谢大家！
+
